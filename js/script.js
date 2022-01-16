@@ -1,14 +1,24 @@
 "use strict";
-
-let numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
- //user give me information about number of films what he watched
 let personalMovieDB = {
-    count: numberOfFilms,
+    count: [] ,
     movies: {},
     actors: {},
     genres: [],
     privat: false
 }
+
+while (true){
+    let numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+    if (numberOfFilms != null && numberOfFilms != ''){
+        personalMovieDB.count = numberOfFilms;
+        break;
+    } else {
+        continue;
+    }
+}
+
+
+ //user give me information about number of films what he watched
 
 
 for(let i = 0; i < 2; i++){
@@ -16,8 +26,7 @@ for(let i = 0; i < 2; i++){
     let movieUserRating = prompt('На сколько оцените его?','');
 
     if(movieQuestion != null && movieUserRating != null && movieQuestion != '' && movieUserRating != '' && movieQuestion.length < 50){
-        personalMovieDB.movies[movieQuestion] = movieUserRating; 
-        continue;
+        personalMovieDB.movies[movieQuestion] = movieUserRating;
     } else {
         i--;
     } 
